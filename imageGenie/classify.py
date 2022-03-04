@@ -1,22 +1,20 @@
 from imageGenie.trainingModule import TrainingModule
+
 """
 
-# pip install twine build
-
 # pip install . >> every time you make changes , run from here
-
 # python -m build >> get the .gz and .whl files
-
-# python -m twine upload --repository testpypi dist/*
-# pip install -i https://test.pypi.org/simple/ imageGenie==0.0.1
-
 # python -m twine upload --repository pypi dist/*
-# pip install imageGenie==0.0.5
 
-* Figure out batch size and other params as per hardware resources
-* allow user to customize the parameters like accuracy, epochs
-* allow user to construct a model by themselves
-
+                  /// TODO ///
+* Handle all image formats
+* Parse the specifications provided by the uer from a config file. That may include the priority
+  of speed, accuracy, emphasis on False Positives or negatives, time available to experiment and train.
+* Include all other model architectures like EfficientNet, MobileNet, Inception, VGG.
+* Algorithm to figure out what architecture and hyper-params would be the best (in the fully automated mode) as per hardware.
+* Save all other artefacts like pipeline, metrics, plots, etc 
+* Allow user to construct a model by themselves
+* Allow to either have a proper folder structure or a json with labels.
 """
 
 class Classifier(object):
@@ -30,5 +28,5 @@ class Classifier(object):
 
 
 if __name__ == "__main__":
-    cl = Classifier("/media/heisenberg/Storage/PersonalFiles/Others/BPOST/bpost/ModelTraining/BigData", "/media/heisenberg/Storage/AllCodesSectionwise/DL_PROJECTS/auto-classifier/models")
+    cl = Classifier("/media/heisenberg/Storage/PersonalFiles/Others/ModelTraining/BigData", "/media/heisenberg/Storage/AllCodesSectionwise/DL_PROJECTS/auto-classifier/models")
     cl.classifier()
